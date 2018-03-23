@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ object.title }}{% endblock title %}
+{% block keywords %}{{ object.meta_keywords }}{% endblock keywords %}
+{% block description %}{{ object.meta_description }}{% endblock description %}
+
+
+
+
+{% block breadcrumb %}
+
+    <a href="/" class="breadcumb__page no-decoration">Главная</a>
+					<span class="breadcumb__del no-decoration">»</span>
+					<a href="blog.html" class="breadcumb__page no-decoration">{{ object.title}}</a>
+
+{% endblock breadcrumb %}
+
+
+{% block content %}
+
+
+
+
+
+
+    <section class="about-us">
+			<div class="container" style="background-color: {{ sitting.main_back_color | safe }}; margin-left: -15px;">
+				<div class="row">
+					<div class="col-sm-10 col-sm-offset-1 col-xs-12">
+						{{ object.content|safe }}
+					</div>
+				</div>
+			</div>
+		</section>
+
+
+
+
+
+
+
+
+{% endblock content %}
+
+{% block mainpage_content %}
+
+        {% include "mainpage_content.html" %}
+
+{% endblock mainpage_content %}
+
+
+
+
+

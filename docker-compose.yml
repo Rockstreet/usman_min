@@ -1,0 +1,23 @@
+version: '2'
+
+services:
+  newusman_db_work:
+    image: postgres
+    container_name: newusman_db_work
+    ports:
+      - "5432:5432"
+  caimanweb:
+    build: .
+    command: python3 manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/code
+    container_name: newusman_web
+    ports:
+      - "8000:8000"
+    depends_on:
+      - newusman_db_work
+
+  caimanadminer:
+     image: adminer
+     ports:
+           - 8880:8080
